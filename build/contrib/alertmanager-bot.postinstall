@@ -22,6 +22,7 @@ esac
 
 
 /bin/systemctl daemon-reload
+chown -R ${USER}:${GROUP} /etc/alertmanager-bot/
 
 exit 0
 
