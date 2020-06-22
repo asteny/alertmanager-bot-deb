@@ -1,0 +1,21 @@
+[Unit]
+Description=Alertmanager bot for Prometheus that notifies you on alerts
+Documentation=https://github.com/metalmatze/alertmanager-bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=alertmanager-bot
+Group=alertmanager-bot
+Restart=always
+RestartSec=5
+StartLimitInterval=0
+StartLimitBurst=99999
+EnvironmentFile=-/etc/default/alertmanager-bot
+ExecStart=/usr/bin/alertmanager-bot $CMD_OPTS
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target

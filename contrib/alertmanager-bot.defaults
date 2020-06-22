@@ -1,0 +1,11 @@
+CMD_OPTS="--log.level=info"
+
+LISTEN_ADDR=127.0.0.1:9094
+ALERTMANAGER_URL=http://127.0.0.1:9093
+TEMPLATE_PATHS=/etc/alertmanager-bot/default.tmpl
+BOLT_PATH=/etc/alertmanager-bot/alertmanager-bot.db
+
+TELEGRAM_ADMIN="id_number_here\nid_number_here"
+TELEGRAM_TOKEN=XXX
+
+GOMAXPROCS=2

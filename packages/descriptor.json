@@ -1,0 +1,35 @@
+{
+    "package": {
+        "name": "alertmanager-bot",
+        "repo": "alertmanager",
+        "subject": "asten",
+        "desc": "Alertmanager bot for Prometheus that notifies you on alerts",
+        "website_url": "https://github.com/metalmatze/alertmanager-bot",
+        "issue_tracker_url": "https://github.com/metalmatze/alertmanager-bot/issues",
+        "vcs_url": "https://github.com/metalmatze/alertmanager-bot/releases",
+        "github_use_tag_release_notes": true,
+        "licenses": ["MIT"],
+        "labels": ["prometheus", "alertmanager", "alertmanager-bot", "alertmanager-bot-deb", "monitoring"],
+        "public_download_numbers": true,
+        "public_stats": true
+    },
+
+    "version": {
+        "name": "0.4.2.0",
+        "desc": "",
+        "released": "2020-01-11",
+        "vcs_tag": "0.4.2",
+        "gpgSign": true
+    },
+
+    "files":
+    [{"includePattern": "build/packages/(.*\.deb)", "uploadPattern": "pool/main/a/alertmanager-bot/$1",
+    "matrixParams": {
+        "deb_distribution": "xenial",
+        "deb_component": "main",
+        "deb_architecture": "amd64",
+        "override": 1 }
+    }
+],
+    "publish": true
+}

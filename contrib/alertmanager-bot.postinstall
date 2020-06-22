@@ -1,0 +1,27 @@
+#!/bin/bash
+
+USER="alertmanager-bot"
+GROUP="alertmanager-bot"
+DESC="Alertmanager bot for Prometheus that notifies you on alerts"
+
+
+case "$1" in
+  configure)
+
+    # create group
+    if ! getent group ${GROUP} >/dev/null; then
+       /usr/sbin/addgroup --quiet --system ${GROUP}
+    fi
+
+    # create colord user if it isn't already there
+    if ! getent passwd ${USER} >/dev/null; then
+       /usr/sbin/adduser --system --ingroup ${GROUP} --gecos "${DESC}" --no-create-home --disabled-login ${USER}
+    fi
+  ;;
+esac
+
+
+/bin/systemctl daemon-reload
+
+exit 0
+
